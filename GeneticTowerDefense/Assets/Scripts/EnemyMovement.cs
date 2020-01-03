@@ -11,14 +11,11 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int waypointIndex = 0;
     public float health;
-    public float distTraveled;
+    public GeneticManager geneManager;
+   
     public Chromosome chromo;
 
-    public float DistTraveled
-    {
-        get { return distTraveled; }
-    }
-
+  
     public Chromosome Chromo
     {
         get { return chromo; }
@@ -30,16 +27,17 @@ public class EnemyMovement : MonoBehaviour
         health = 30;
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         waveSpawner = gameManager.GetComponent<WaveSpawner>();
-        distTraveled = 0;
+       
         speed = fixedSpeed;
-        chromo = GetComponent<Chromosome>();
+        chromo = new Chromosome();
+        geneManager = gameManager.GetComponent<GeneticManager>();
     }
 
     void Update()
     {
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-        distTraveled += (dir.normalized * speed * Time.deltaTime).magnitude;
+        chromo.DistTraveled += (dir.normalized * speed * Time.deltaTime).magnitude;
         if (Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
             GetNextWaypoint();
@@ -48,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
         if (health <= 0)
         {
 
-
+            geneManager.RecordFitness(chromo);
             DestroyEnemy(gameObject);
             return;
         }
