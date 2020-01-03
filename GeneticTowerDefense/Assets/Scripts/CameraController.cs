@@ -23,22 +23,22 @@ public class CameraController : MonoBehaviour
         
         
         //Move up
-        if (Input.GetKey("w"))
+        if (Input.GetKey("s"))
         {
             transform.Translate(Vector3.forward  * panSpeed * Time.deltaTime, Space.World);
         }
         //Move down
-        if (Input.GetKey("s"))
+        if (Input.GetKey("w"))
         {
             transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
         }
         //Move Left
-        if (Input.GetKey("a"))
+        if (Input.GetKey("d"))
         {
             transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
         }
         //Move right
-        if (Input.GetKey("d"))
+        if (Input.GetKey("a"))
         {
             transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
         }
