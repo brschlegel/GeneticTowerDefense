@@ -2,23 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chromosome 
+public class Chromosome
 {
     public float distTraveled;
+
+    //health, speed
+    List<float> data;
     public float DistTraveled
     {
         get { return distTraveled; }
-        set { distTraveled = value;  }
+        set { distTraveled = value; }
     }
 
-    void Start()
+    public Chromosome(List<float> data)
     {
-        distTraveled = 0;
+        this.data = data;
     }
 
-    // Update is called once per frame
-    void Update()
+    public List<float> Data 
     {
-        
+        get { return data; }
     }
+    public float Health
+    {
+        get { return data[0]; }
+    }
+
+    public float Speed
+    {
+        get { return data[1]; }
+    }
+    
 }

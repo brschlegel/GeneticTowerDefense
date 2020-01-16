@@ -24,13 +24,13 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         target = Waypoints.points[0];
-        health = 30;
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         waveSpawner = gameManager.GetComponent<WaveSpawner>();
-       
-        speed = fixedSpeed;
-        chromo = new Chromosome();
         geneManager = gameManager.GetComponent<GeneticManager>();
+        chromo = geneManager.CreateChromosome();
+        health = chromo.Health ;
+        speed = chromo.Speed;
+       
     }
 
     void Update()
