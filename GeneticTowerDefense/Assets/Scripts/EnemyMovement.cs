@@ -28,8 +28,8 @@ public class EnemyMovement : MonoBehaviour
         waveSpawner = gameManager.GetComponent<WaveSpawner>();
         geneManager = gameManager.GetComponent<GeneticManager>();
         chromo = geneManager.CreateChromosome();
-        health = chromo.Health ;
-        speed = chromo.Speed;
+        health = chromo.Health * 40 ;
+        speed = chromo.Speed * 20;
        
     }
 
