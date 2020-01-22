@@ -12,13 +12,13 @@ public class WaveSpawner : MonoBehaviour
     private int waveNum = 1;
     public int numDestroyed;
     private int numEnemies;
-  
+    public GeneticManager geneManager;
     public NextWave nextWave;
     public Transform spawnPoint;
 
     void Start()
     {
-        
+        geneManager = GetComponent<GeneticManager>();
     }
 
     void Update()
@@ -34,6 +34,7 @@ public class WaveSpawner : MonoBehaviour
     {
         numDestroyed = 0;
         nextWave.SetEnabled(false);
+        geneManager.CreateSeed();
         StartCoroutine(SpawnWave());
 
     }
@@ -50,7 +51,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        numEnemies = (int)(waveNum * Mathf.Sqrt(waveNum));
+        numEnemies = (int)(waveNum * Mathf.Sqrt(waveNum) + 3);
 
         for (int i = 0; i < numEnemies; i++)
         {
