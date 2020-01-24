@@ -20,6 +20,7 @@ public class GeneticManager : MonoBehaviour
         secondFittest = new Chromosome(new List<float>() { 0, 0 });
         mutationBounds = .1f;
         mutationChance = .2f;
+     
     }
     
 
@@ -62,8 +63,9 @@ public class GeneticManager : MonoBehaviour
 
     public Chromosome CreateChromosome()
     {
-        
-        return new Chromosome(Mutate(seed));
+        List<float> data = Mutate(seed);
+       
+        return new Chromosome(data);
     }
 
     public void CreateSeed()
@@ -111,16 +113,18 @@ public class GeneticManager : MonoBehaviour
     public List<float> Mutate(List<float> data)
     {
         List<float> mutData = new List<float>();
-
+       
         for(int i = 0; i < data.Count; i++)
         {
+           
             if(Random.value <= mutationChance )
             {
-                mutData[i] = Random.Range(-mutationBounds, mutationBounds) + data[i];
+                Debug.Log("Mutated!");
+                mutData.Add(Random.Range(-mutationBounds, mutationBounds) + data[i]);
             }
             else 
             {
-                mutData[i] = data[i];
+                mutData.Add(data[i]);
             }
         }
         return mutData;
