@@ -10,12 +10,16 @@ public class GeneticManager : MonoBehaviour
     public float fitDist;
     public float secFitDist;
     public List<float> seed;
+    public float mutationChance;
+    public float mutationBounds;
     
     // Start is called before the first frame update
     void Start()
     {
         fittest = new Chromosome(new List<float>() { 0, 0 });
         secondFittest = new Chromosome(new List<float>() { 0, 0 });
+        mutationBounds = .1f;
+        mutationChance = .2f;
     }
     
 
@@ -58,7 +62,8 @@ public class GeneticManager : MonoBehaviour
 
     public Chromosome CreateChromosome()
     {
-        return new Chromosome(seed);
+        
+        return new Chromosome(Mutate(seed));
     }
 
     public void CreateSeed()
@@ -67,9 +72,8 @@ public class GeneticManager : MonoBehaviour
        
         if (fittest.DistTraveled != 0)
         {
-            Debug.Log("bruh");
-            List<float>[] fittestData = fittest.Split(1);
-            List<float>[] secFittestData = secondFittest.Split(1);
+            List<float>[] fittestData = fittest.Split(0);
+            List<float>[] secFittestData = secondFittest.Split(0);
             data = Splice(fittestData[0], secFittestData[1]);
            
         }
@@ -78,7 +82,7 @@ public class GeneticManager : MonoBehaviour
             data.Add(.3f);
             data.Add(.4f);
         }
-        //Normalize(data);
+        Normalize(data);
         seed = data;
     }
     public List<float> Splice(List<float> front, List<float> back)
@@ -104,5 +108,22 @@ public class GeneticManager : MonoBehaviour
         
     }
 
+    public List<float> Mutate(List<float> data)
+    {
+        List<float> mutData = new List<float>();
+
+        for(int i = 0; i < data.Count; i++)
+        {
+            if(Random.value <= mutationChance )
+            {
+                mutData[i] = Random.Range(-mutationBounds, mutationBounds) + data[i];
+            }
+            else 
+            {
+                mutData[i] = data[i];
+            }
+        }
+        return mutData;
+    }
     
 }
