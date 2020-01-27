@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
-    public float fixedSpeed = 10f;
+    public float fixedSpeed;
 
     public GameObject gameManager;
     private WaveSpawner waveSpawner;
@@ -30,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
         chromo = geneManager.CreateChromosome();
         health = chromo.Health * 40 ;
         speed = chromo.Speed * 20;
+        fixedSpeed = speed;
        
     }
 

@@ -35,6 +35,7 @@ public class WaveSpawner : MonoBehaviour
         numDestroyed = 0;
         nextWave.SetEnabled(false);
         geneManager.CreateSeed();
+        geneManager.ResetFitness();
         StartCoroutine(SpawnWave());
 
     }
