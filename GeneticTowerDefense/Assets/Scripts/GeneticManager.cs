@@ -79,12 +79,21 @@ public class GeneticManager : MonoBehaviour
        
         if (fittest.DistTraveled != 0)
         {
-            List<float>[] fittestData = fittest.Split(0);
-            List<float>[] secFittestData = secondFittest.Split(0);
-            data = Splice(fittestData[0], secFittestData[1]);
+            int splitIndex = Random.Range(0, fittest.Data.Count);
+            List<float>[] fittestData = fittest.Split(splitIndex);
+            List<float>[] secFittestData = secondFittest.Split(splitIndex);
+            if (Random.value < .5)
+            {
+                data = Splice(fittestData[0], secFittestData[1]);
+            }
+            else 
+            {
+                data = Splice(secFittestData[0], fittestData[1]);
+            }
         }
         else
         {
+            data.Add(.1f);
             data.Add(.1f);
             data.Add(.1f);
         }
@@ -136,8 +145,8 @@ public class GeneticManager : MonoBehaviour
 
     public void ResetFitness()
     {
-        fittest = new Chromosome(new List<float>() { 0, 0 });
-        secondFittest = new Chromosome(new List<float>() { 0, 0 });
+        fittest = new Chromosome(new List<float>() { 0, 0,0 });
+        secondFittest = new Chromosome(new List<float>() { 0, 0,0 });
     }
     
 }

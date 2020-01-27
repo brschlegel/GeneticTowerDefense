@@ -6,7 +6,7 @@ public class Chromosome
 {
     public float distTraveled;
 
-    //health, speed
+    //health, speed, evasionRate
     List<float> data;
 
     public List<float>[] Split(int index)
@@ -53,6 +53,12 @@ public class Chromosome
     {
         get { return data[1]; }
         set { data[1] = value; }
+    }
+
+    public float EvasionRate
+    {
+        get { return data[2]; }
+        set { data[2] = value; }
     }
     #endregion
 }

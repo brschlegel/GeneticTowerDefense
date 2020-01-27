@@ -11,11 +11,14 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int waypointIndex = 0;
     public float health;
+    public float evasionRate;
     public GeneticManager geneManager;
    
     public Chromosome chromo;
 
-  
+    
+
+
     public Chromosome Chromo
     {
         get { return chromo; }
@@ -28,9 +31,7 @@ public class EnemyMovement : MonoBehaviour
         waveSpawner = gameManager.GetComponent<WaveSpawner>();
         geneManager = gameManager.GetComponent<GeneticManager>();
         chromo = geneManager.CreateChromosome();
-        health = chromo.Health * 40 ;
-        speed = chromo.Speed * 20;
-        fixedSpeed = speed;
+        AssignStats();
        
     }
 
@@ -62,6 +63,8 @@ public class EnemyMovement : MonoBehaviour
         //Destroys object if at end
         if (waypointIndex >= Waypoints.points.Length - 1)
         {
+            geneManager.RecordFitness(chromo);
+
             DestroyEnemy(gameObject);
             return;
         }
@@ -69,7 +72,26 @@ public class EnemyMovement : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        if (Random.value > evasionRate)
+        {
+            health -= damage;
+        }
+      
+    }
+
+    public void AssignStats()
+    {
+        health = chromo.Health * 40;
+        speed = chromo.Speed * 10 + 3;
+        fixedSpeed = speed;
+        if (evasionRate > 0)
+        {
+            evasionRate = chromo.EvasionRate * .5f;
+        }
+        else 
+        {
+            evasionRate = 0;
+        }
     }
 
     public void DestroyEnemy(GameObject obj)
@@ -88,5 +110,7 @@ public class EnemyMovement : MonoBehaviour
     {
         get { return fixedSpeed; }
     }
+
+    
 
 }
