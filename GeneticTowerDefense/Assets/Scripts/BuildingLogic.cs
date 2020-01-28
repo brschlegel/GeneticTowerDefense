@@ -10,6 +10,7 @@ public class BuildingLogic : MonoBehaviour
     [Header("Tower Prefabs")]
     public Transform cubeTower;
     public Transform hourglass;
+    public Transform slam;
 
 
     //properties
@@ -37,6 +38,12 @@ public class BuildingLogic : MonoBehaviour
     {
         bought = true;
         towerBought = hourglass;
+    }
+
+    public void OnSlamClick()
+    {
+        bought = true;
+        towerBought = slam;
     }
 
     public void Start()
