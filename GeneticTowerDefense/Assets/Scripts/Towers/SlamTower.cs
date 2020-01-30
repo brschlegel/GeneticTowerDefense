@@ -50,11 +50,12 @@ public class SlamTower : ParentTurret
         }
         effectPos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         GameObject effectIns = (GameObject)Instantiate(slamEffect, effectPos, transform.rotation);
+        Destroy(effectIns, 2f);
     }
 
     void EndAnim()
     {
         anim.SetBool("Attacking", false);
-        Debug.Log("Please");
+       
     }
 }
