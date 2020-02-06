@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chromosome
+public class Chromosome 
 {
     public float distTraveled;
 

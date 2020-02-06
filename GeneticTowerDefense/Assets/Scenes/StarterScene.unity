@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.437017, g: 0.48470992, b: 0.56497234, a: 1}
+  m_IndirectSpecularColor: {r: 0.43701658, g: 0.4847092, b: 0.564971, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2563,20 +2563,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piercer
       objectReference: {fileID: 0}
+    - target: {fileID: -6283877591383234665, guid: 82109afca447f3a46a9328e5cd8ff260,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 69ae1eb3a5936bb40a6337671fd24361, type: 2}
     - target: {fileID: -4216859302048453862, guid: 82109afca447f3a46a9328e5cd8ff260,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.31
+      value: -24.74
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 82109afca447f3a46a9328e5cd8ff260,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.48
+      value: -1.37
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 82109afca447f3a46a9328e5cd8ff260,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.95
+      value: 15.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 82109afca447f3a46a9328e5cd8ff260,
         type: 3}
@@ -2633,11 +2638,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 140
       objectReference: {fileID: 0}
-    - target: {fileID: -6283877591383234665, guid: 82109afca447f3a46a9328e5cd8ff260,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 69ae1eb3a5936bb40a6337671fd24361, type: 2}
     - target: {fileID: -3701727588016112575, guid: 82109afca447f3a46a9328e5cd8ff260,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
