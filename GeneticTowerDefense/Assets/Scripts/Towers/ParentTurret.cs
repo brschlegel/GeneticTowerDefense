@@ -5,8 +5,9 @@ using UnityEngine;
 public class ParentTurret : MonoBehaviour
 {
     private GameObject[] enemies;
-    
-    
+    public GameObject target;
+
+
     public GameObject nearestEnemy;
     private string EnemyTag = "Enemy";
     public List<EnemyMovement> inRange;
@@ -78,6 +79,18 @@ public class ParentTurret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
+    void UpdateTarget()
+    {
+        nearestEnemy = NearestEnemy(transform.position, range, GetEnemiesInRangeGO(transform.position, range));
+        if (nearestEnemy != null)
+        {
+            target = nearestEnemy;
+        }
+        else
+        {
+            target = null;
+        }
+    }
 
 
 

@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : Projectile
+public class PiercerBullet : Projectile
 {
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
+    // Update is called once per frame
 
-    
 
     public override void HitTarget()
     {
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         enemy = target.GetComponent<EnemyMovement>();
         enemy.TakeDamage(damage);
-        
-        Destroy(effectIns,2f);
-
-
-        Destroy(gameObject);
-
     }
 
 }

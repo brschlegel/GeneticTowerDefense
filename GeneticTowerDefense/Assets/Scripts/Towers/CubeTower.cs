@@ -5,7 +5,7 @@ using UnityEngine;
 public class CubeTower : ParentTurret
 {
     
-    public GameObject target;
+    
 
     
 
@@ -58,16 +58,5 @@ public class CubeTower : ParentTurret
 
    
 
-    void UpdateTarget()
-    {
-        nearestEnemy = NearestEnemy(transform.position, range, GetEnemiesInRangeGO(transform.position, range));
-        if (nearestEnemy != null)
-        {
-            target = nearestEnemy;
-        }
-        else
-        {
-            target = null;
-        }
-    }
+    
 }
