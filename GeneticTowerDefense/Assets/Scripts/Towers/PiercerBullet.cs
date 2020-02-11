@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PiercerBullet : Projectile
 {
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -17,6 +16,7 @@ public class PiercerBullet : Projectile
     {
         enemy = target.GetComponent<EnemyMovement>();
         enemy.TakeDamage(damage);
+        target = null;
     }
 
 }
