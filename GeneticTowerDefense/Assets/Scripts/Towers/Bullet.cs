@@ -8,10 +8,10 @@ public class Bullet : Projectile
 
     
 
-    public override void HitTarget()
+    public override void HitTarget(EnemyMovement enemy)
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        enemy = target.GetComponent<EnemyMovement>();
+        
         enemy.TakeDamage(damage);
         
         Destroy(effectIns,2f);

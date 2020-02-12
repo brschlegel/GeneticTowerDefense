@@ -11,6 +11,8 @@ public abstract class Projectile : MonoBehaviour
     public float damage;
     public float speed = 30;
     public GameObject impactEffect;
+
+    public Vector3 dir;
     public void Seek(GameObject _target)
     {
         target = _target;
@@ -24,7 +26,7 @@ public abstract class Projectile : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (target == null)
         {
@@ -33,19 +35,31 @@ public abstract class Projectile : MonoBehaviour
         }
 
 
-        Vector3 dir = target.transform.position - transform.position;
+         dir = target.transform.position - transform.position;
 
         float dist = speed * Time.deltaTime;
 
         if (dir.magnitude <= dist)
         {
-            HitTarget();
+            //HitTarget();
             return;
         }
 
         transform.Translate(dir.normalized * dist, Space.World);
     }
 
-    public abstract void HitTarget();
+    public abstract void HitTarget(EnemyMovement enemy);
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.tag);
+        if(other.gameObject.tag == "Enemy")
+        {
+            HitTarget(other.gameObject.GetComponent<EnemyMovement>());
+            Debug.Log(other.gameObject.GetComponent<EnemyMovement>());
+        }
+       
+    }
+    
    
 }
