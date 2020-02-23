@@ -11,6 +11,7 @@ public class BuildingLogic : MonoBehaviour
     public Transform cubeTower;
     public Transform hourglass;
     public Transform slam;
+ 
 
 
     //properties
@@ -45,6 +46,8 @@ public class BuildingLogic : MonoBehaviour
         bought = true;
         towerBought = slam;
     }
+
+    
 
     public void Start()
     {

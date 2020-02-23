@@ -61,9 +61,10 @@ public class Node : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && hover && bl.Bought && builtOn == false )
         {
-            Instantiate(towerPrefab, buildPosition, transform.rotation);
+            
             bl.Bought = false;
             builtOn = true;
+            Instantiate(towerPrefab, buildPosition, transform.rotation);
         }
     }
 

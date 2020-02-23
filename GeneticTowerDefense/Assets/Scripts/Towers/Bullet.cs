@@ -13,8 +13,8 @@ public class Bullet : Projectile
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         
         enemy.TakeDamage(damage);
-        
-        Destroy(effectIns,2f);
+
+        Destroy(effectIns, 2f);
 
 
         Destroy(gameObject);
