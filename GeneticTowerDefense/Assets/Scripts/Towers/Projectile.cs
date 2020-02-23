@@ -54,7 +54,6 @@ public abstract class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         EnemyMovement enemy = other.gameObject.GetComponent<EnemyMovement>();
-        Debug.Log(other);
 
         HitTarget(enemy);
 

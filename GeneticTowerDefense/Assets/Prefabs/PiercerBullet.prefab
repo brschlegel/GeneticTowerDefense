@@ -111,6 +111,7 @@ MonoBehaviour:
   speed: 30
   impactEffect: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
+  destroyThreshold: 250
 --- !u!54 &-4938951970959067791
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,10 +6,12 @@ public class PiercerBullet : Projectile
 {
 
     List<EnemyMovement> hasHit;
+    public float destroyThreshold;
     void Start()
     {
         hasHit = new List<EnemyMovement>();
         speed = 50;
+
     }
 
     public override void Update()
@@ -18,12 +20,17 @@ public class PiercerBullet : Projectile
         if (hasHit.Count == 0)
         {
             dir = target.transform.position - transform.position;
+            
         }
 
         float dist = speed * Time.deltaTime;
 
-        
+        if(transform.position.magnitude >= destroyThreshold)
+        {
+            
 
+            Destroy(gameObject);
+        }
         transform.Translate(dir.normalized * dist, Space.World);
     }
 
