@@ -13,6 +13,8 @@ public class GeneticManager : MonoBehaviour
     public float mutationChance;
     public float mutationBounds;
     
+    private float energy;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class GeneticManager : MonoBehaviour
         secondFittest = new Chromosome(new List<float>() { 0, 0 });
         mutationBounds = .3f;
         mutationChance = .2f;
+        energy = 1;
      
     }
     
@@ -99,6 +102,9 @@ public class GeneticManager : MonoBehaviour
         }
         Normalize(data);
         seed = data;
+
+        //determining energy
+        energy += .2f;
     }
     public List<float> Splice(List<float> front, List<float> back)
     {
@@ -149,4 +155,8 @@ public class GeneticManager : MonoBehaviour
         secondFittest = new Chromosome(new List<float>() { 0, 0,0 });
     }
     
+    public float Energy
+    {
+        get { return energy; }
+    }
 }

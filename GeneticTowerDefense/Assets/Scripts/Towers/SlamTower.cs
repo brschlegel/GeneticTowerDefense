@@ -44,9 +44,12 @@ public class SlamTower : ParentTurret
     {
         foreach (EnemyMovement e in inRange)
         {
+           
             float damageToTake = damage * Mathf.Log(-Vector3.Distance(e.transform.position, transform.position) + range + 1);
-            
-            e.TakeDamage(damageToTake);
+            if (e != null)
+            {
+                e.TakeDamage(damageToTake);
+            }
         }
         effectPos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         GameObject effectIns = (GameObject)Instantiate(slamEffect, effectPos, transform.rotation);

@@ -30,7 +30,7 @@ public class Hourglass : ParentTurret
         {
             if (inRange.Contains(e))
             {
-                e.Speed = e.fixedSpeed  / 2;
+                e.Speed = e.fixedSpeed  / 1.5f;
             }
             else
             {

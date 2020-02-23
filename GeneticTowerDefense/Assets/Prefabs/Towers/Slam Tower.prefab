@@ -145,11 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78beaacf2fb444d409f6b53bf05a64fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   nearestEnemy: {fileID: 0}
   inRange: []
   range: 0
   damage: 0
-  slamEffect: {fileID: 51808912369922140, guid: 4ecc03616d5bb414ca357b4128c55c19,
+  slamEffect: {fileID: 51808912369922140, guid: 18b4054e2e513af478aab42c2602160c,
     type: 3}
   effectPos: {x: 0, y: 0, z: 0}
 --- !u!1 &7835350895767529925

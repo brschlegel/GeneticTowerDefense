@@ -81,12 +81,12 @@ public class EnemyMovement : MonoBehaviour
 
     public void AssignStats()
     {
-        health = chromo.Health * 40;
-        speed = chromo.Speed * 10 + 3;
+        health = chromo.Health * 40 * geneManager.Energy;
+        speed = (chromo.Speed * 10 + 3) * geneManager.Energy;
         fixedSpeed = speed;
         if (evasionRate > 0)
         {
-            evasionRate = chromo.EvasionRate * .5f;
+            evasionRate = chromo.EvasionRate * .5f ;
         }
         else 
         {
